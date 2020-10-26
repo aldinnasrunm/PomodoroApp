@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
@@ -14,9 +15,12 @@ class EcoLandingActivity : AppCompatActivity() {
     lateinit var rgSelectTime : RadioGroup
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        requestWindowFeature(1)
         setContentView(R.layout.activity_eco_landing)
         supportActionBar?.hide()
-
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+        WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        window.setStatusBarColor(Color.TRANSPARENT)
         rgSelectTime = findViewById(R.id.rg_selectTime)
         
         rgSelectTime.setOnCheckedChangeListener { group, checkedId ->

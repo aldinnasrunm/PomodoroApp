@@ -49,7 +49,7 @@ class EcoTimerActivity : AppCompatActivity() {
     private fun startTimer(timeInMilis: Long) {
         coundownTime = object : CountDownTimer(timeInMilis, 1000) {
             override fun onFinish() {
-                nHelper.createSampleDataNotification(
+                nHelper.ecoNotification(
                     this@EcoTimerActivity,
                     "YUHUU",
                     "Weheheheh",
