@@ -1,29 +1,31 @@
 package com.quick.pomodorokt.Activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.os.Handler
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NotificationManagerCompat
 import com.airbnb.lottie.LottieAnimationView
+import com.quick.pomodorokt.Notif.NotificationHelper
 import com.quick.pomodorokt.R
 import kotlinx.android.synthetic.main.activity_pomo.*
 
 class PomoActivity : AppCompatActivity() {
-    val START_MILI_SECONDS = 60000L
-    lateinit var coundownTime: CountDownTimer
-    var isRunning: Boolean = false
+    private val START_MILI_SECONDS = 60000L
+    private lateinit var coundownTime: CountDownTimer
+    private var isRunning = false
     var TIME_IN_MILIS = 0L
-    var i = 0
+    var nHelper = NotificationHelper()
+
     lateinit var bookAnim: LottieAnimationView
     lateinit var completeAnim: LottieAnimationView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
+        window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
         )
@@ -31,10 +33,15 @@ class PomoActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
+
+        nHelper.createNotificationManager(this, NotificationManagerCompat.IMPORTANCE_HIGH, false,
+            getString(R.string.app_name), "App Notification Channel")
+
         bookAnim = findViewById(R.id.bookAnim)
         completeAnim = findViewById(R.id.completeAnim)
         bookAnim.visibility = View.GONE
         completeAnim.visibility = View.GONE
+
 
 
         btn_start.setOnClickListener {
@@ -44,8 +51,8 @@ class PomoActivity : AppCompatActivity() {
             } else {
                 completeAnim.visibility = View.GONE
                 bookAnim.visibility = View.VISIBLE
-                val time = 1
-                TIME_IN_MILIS = time.toLong() * 60000L
+                val time = 15 //jan lupa diganti
+                TIME_IN_MILIS = time.toLong() * 1000L // ini juga
                 startTimer(TIME_IN_MILIS)
             }
         }
@@ -54,6 +61,7 @@ class PomoActivity : AppCompatActivity() {
 
             resetTimer()
         }
+
     }
 
     private fun resetTimer() {
@@ -66,10 +74,12 @@ class PomoActivity : AppCompatActivity() {
         coundownTime = object : CountDownTimer(timeInMilis, 1000) {
             override fun onFinish() {
                 Toast.makeText(this@PomoActivity, "Finish", Toast.LENGTH_LONG).show()
+                nHelper.createSampleDataNotification(this@PomoActivity,"YUHUU", "Weheheheh", "Alooo", true)
                 bookAnim.visibility = View.GONE
                 completeAnim.visibility = View.VISIBLE
                 btn_start.text = "START"
                 tv_count.text = "FINISH"
+                isRunning = false
                 resetTimer()
             }
 
@@ -99,11 +109,17 @@ class PomoActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if(isRunning){
+        if (isRunning) {
+            moveTaskToBack(true)
             Toast.makeText(this, "Tunggu Dulu", Toast.LENGTH_SHORT).show()
-        }else{
+        } else {
             onPause()
             super.onBackPressed()
         }
     }
+
 }
+
+
+
+

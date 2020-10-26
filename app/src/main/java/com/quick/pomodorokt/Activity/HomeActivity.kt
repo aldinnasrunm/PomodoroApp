@@ -18,6 +18,7 @@ class HomeActivity : AppCompatActivity() {
             Toast.makeText(this, "Pomodoro selected", Toast.LENGTH_SHORT).show()
         }
         btn_eco.setOnClickListener {
+            startActivity(Intent(this@HomeActivity, EcoLandingActivity::class.java))
             Toast.makeText(this, "Eco selected", Toast.LENGTH_SHORT).show()
 
         }

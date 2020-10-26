@@ -3,4 +3,6 @@
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="ecomode_text">Eco mode menawarkan belajar fleksibel\nsesuai kemauan kamu</string>
+    <string name="eco_desc">Selamat datang di eco mode, disini kamu bisa memilih seberapa lama waktu kamu untuk belajar. Belajar jadi lebih santai.</string>
 </resources>

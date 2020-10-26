@@ -9,11 +9,14 @@
         android:roundIcon="@mipmap/ic_pomo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Activity.EcoTimerActivity"></activity>
+        <activity android:name=".Activity.EcoLandingActivity" />
+        <activity android:name=".Activity.EcoActivity" />
         <activity
             android:name=".Activity.FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_fullscreen"
-            android:theme="@style/FullscreenTheme"></activity>
+            android:theme="@style/FullscreenTheme" />
         <activity android:name=".Activity.PomoActivity" />
         <activity android:name=".Activity.HomeActivity" />
         <activity android:name=".MainActivity">

@@ -7,6 +7,9 @@
     <color name="colorAccentDark">#2b2d42</color>
     <color name="colorGray">#8d99ae</color>
     <color name="colorBlack">#000000</color>
-
+    <color name="greenCunyun">#a0c743</color>
+    <color name="greenLight">#C4E17F</color>
+    <color name="greenOver">#92bf2a</color>
     <color name="black_overlay">#66000000</color>
+    <color name="white">#fff</color>
 </resources>
