@@ -2,73 +2,104 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pomoParent"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/pomoParent"
     android:background="#fff"
     tools:context=".Activity.PomoActivity">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/colorAccentDark">
+
+        <ImageView
+            android:id="@+id/iv_circle"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginBottom="64dp"
+            android:elevation="1dp"
+            android:src="@drawable/circle_shape"
+            app:layout_constraintBottom_toTopOf="@+id/tv_count"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/bookAnim"
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:layout_constraintBottom_toTopOf="@+id/tv_count"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:lottie_fileName="31339-book-loop-perspective.json" />
+            android:elevation="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_circle"
+            app:layout_constraintEnd_toEndOf="@+id/iv_circle"
+            app:layout_constraintStart_toStartOf="@+id/iv_circle"
+            app:layout_constraintTop_toTopOf="@+id/iv_circle"
+            app:lottie_fileName="sand_clock.json"
+            app:lottie_loop="true" />
+
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/completeAnim"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
+            android:layout_height="220dp"
+            android:elevation="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_circle"
+            app:layout_constraintEnd_toEndOf="@+id/iv_circle"
+            app:layout_constraintStart_toStartOf="@+id/iv_circle"
+            app:layout_constraintTop_toTopOf="@+id/iv_circle"
+            app:lottie_fileName="finish.json" />
+
+        <TextView
+            android:id="@+id/tv_welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="7x3 != 1x21"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:textStyle="italic"
             app:layout_constraintBottom_toTopOf="@+id/tv_count"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:lottie_fileName="34490-book-animation.json" />
+            app:layout_constraintTop_toTopOf="parent" />
+    
         <TextView
-            android:textColor="@color/colorBlack"
+            android:background="@drawable/bg_semi_transparent_white"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
             android:id="@+id/tv_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="00.00"
+            android:textColor="@color/colorAccentDark"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btn_start"
-            android:text="START"
-            android:textColor="#fff"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="32dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_marginBottom="64dp"
-            android:background="@drawable/round_bg_primary_shape"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_start"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:backgroundTint="#E84848"
-            android:foregroundTintMode="add"
+        <ImageButton
             android:id="@+id/btn_restart"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginBottom="64dp"
-            android:background="@drawable/round_bg_primary_shape"
-            android:text="RESTART"
-            android:textColor="#fff"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/btn_start" />
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="16dp"
+            android:background="#00FFFFFF"
+            android:scaleType="fitCenter"
+
+            android:src="@drawable/ic_reset"
+            app:layout_constraintBottom_toTopOf="@+id/btn_start"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

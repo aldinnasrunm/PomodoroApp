@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.EcoLandingActivity"
-    android:background="@drawable/ic_bg_green">
+    android:background="@drawable/ic_bg_green"
+    tools:context=".Activity.EcoLandingActivity">
 
     <TextView
         android:id="@+id/textView5"
@@ -40,28 +40,38 @@
         android:layout_marginTop="32dp"
         android:text="30"
         android:textColor="@color/white"
-        android:textSize="45sp"
+        android:textSize="55sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Menit"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_time"
+        app:layout_constraintStart_toStartOf="@+id/tv_time"
+        app:layout_constraintTop_toBottomOf="@+id/tv_time" />
+
     <ImageView
-        android:elevation="55dp"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="320dp"
+        android:elevation="55dp"
         android:src="@drawable/undraw_mathematics"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:elevation="50dp"
-        android:outlineAmbientShadowColor="@color/greenOver"
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="350dp"
         android:background="@drawable/super_round_bg_white_shape"
+        android:elevation="50dp"
+        android:outlineAmbientShadowColor="@color/greenOver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
@@ -108,13 +118,12 @@
 
         <RadioGroup
             android:id="@+id/rg_selectTime"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="32dp"
             android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="5dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4">
 
@@ -123,33 +132,32 @@
                 android:layout_width="80dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="8dp"
-                android:textColor="@color/white"
                 android:background="@drawable/custom_eco_radio_button"
                 android:button="@android:color/transparent"
                 android:text="15"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/white" />
 
             <RadioButton
                 android:id="@+id/rb_time30"
                 android:layout_width="80dp"
                 android:layout_height="50dp"
                 android:layout_marginEnd="8dp"
-                android:textColor="@color/white"
                 android:background="@drawable/custom_eco_radio_button"
                 android:button="@android:color/transparent"
                 android:text="30"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/white" />
 
             <RadioButton
                 android:id="@+id/rb_time45"
                 android:layout_width="80dp"
                 android:layout_height="50dp"
-                android:layout_marginEnd="8dp"
-                android:textColor="@color/white"
                 android:background="@drawable/custom_eco_radio_button"
                 android:button="@android:color/transparent"
                 android:text="45"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/white" />
         </RadioGroup>
 
         <Button
@@ -158,9 +166,9 @@
             android:layout_height="50dp"
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="32dp"
-            android:textColor="@color/white"
             android:background="@drawable/round_bg_green_shape"
             android:text="MULAI"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
