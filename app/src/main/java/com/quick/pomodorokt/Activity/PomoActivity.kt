@@ -14,7 +14,7 @@ import com.quick.pomodorokt.R
 import kotlinx.android.synthetic.main.activity_pomo.*
 
 class PomoActivity : AppCompatActivity() {
-    private val START_MILI_SECONDS = 60000L
+    private val START_MILI_SECONDS = 0L
     private lateinit var coundownTime: CountDownTimer
     private var isRunning = false
     var TIME_IN_MILIS = 0L
@@ -40,17 +40,22 @@ class PomoActivity : AppCompatActivity() {
         bookAnim = findViewById(R.id.bookAnim)
         completeAnim = findViewById(R.id.completeAnim)
         bookAnim.visibility = View.GONE
+        iv_circle.visibility = View.GONE
         completeAnim.visibility = View.GONE
-
+        btn_restart.visibility = View.GONE
 
 
         btn_start.setOnClickListener {
             if (isRunning) {
                 pauseTimer()
+                bookAnim.pauseAnimation()
 
             } else {
+                tv_welcome.visibility = View.GONE
+                bookAnim.playAnimation()
                 completeAnim.visibility = View.GONE
                 bookAnim.visibility = View.VISIBLE
+                iv_circle.visibility = View.VISIBLE
                 val time = 15 //jan lupa diganti
                 TIME_IN_MILIS = time.toLong() * 1000L // ini juga
                 startTimer(TIME_IN_MILIS)
@@ -77,7 +82,8 @@ class PomoActivity : AppCompatActivity() {
                 nHelper.createSampleDataNotification(this@PomoActivity,"YUHUU", "Weheheheh", "Alooo", true)
                 bookAnim.visibility = View.GONE
                 completeAnim.visibility = View.VISIBLE
-                btn_start.text = "START"
+                completeAnim.playAnimation()
+                btn_start.setImageDrawable(resources.getDrawable(R.drawable.ic_start))
                 tv_count.text = "FINISH"
                 isRunning = false
                 resetTimer()
@@ -91,7 +97,7 @@ class PomoActivity : AppCompatActivity() {
         }
         coundownTime.start()
         isRunning = true
-        btn_start.text = "PAUSE"
+        btn_start.setImageDrawable(resources.getDrawable(R.drawable.ic_pause))
         btn_restart.visibility = View.INVISIBLE
     }
 
@@ -102,7 +108,7 @@ class PomoActivity : AppCompatActivity() {
     }
 
     private fun pauseTimer() {
-        btn_start.text = "Start"
+        btn_start.setImageDrawable(resources.getDrawable(R.drawable.ic_start))
         coundownTime.cancel()
         isRunning = false
         btn_restart.visibility = View.VISIBLE
