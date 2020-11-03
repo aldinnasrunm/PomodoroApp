@@ -45,7 +45,7 @@ class EcoTimerActivity : AppCompatActivity() {
         val bundle = intent.extras
         var time = bundle?.getInt("time", 0)
         val count = time.toString()
-        TIME_IN_MILIS = count.toLong() * 1000L // ini juga
+        TIME_IN_MILIS = count.toLong() * 60000L // ini juga
         startTimer(TIME_IN_MILIS)
 
 

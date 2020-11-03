@@ -56,8 +56,8 @@ class PomoActivity : AppCompatActivity() {
                 completeAnim.visibility = View.GONE
                 bookAnim.visibility = View.VISIBLE
                 iv_circle.visibility = View.VISIBLE
-                val time = 15 //jan lupa diganti
-                TIME_IN_MILIS = time.toLong() * 1000L // ini juga
+                val time = 25 //jan lupa diganti
+                TIME_IN_MILIS = time.toLong() * 60000L // ini juga
                 startTimer(TIME_IN_MILIS)
             }
         }
