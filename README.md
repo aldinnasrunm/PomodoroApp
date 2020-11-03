@@ -1,4 +1,4 @@
 # PomodoroApp
 Minimalist Pomodoro App
 
-![splashScreen](../screnshoot/ecolanding.png?raw=true "splashscreen")
+![splashScreen](https://github.com/sirupmarjan/PomodoroApp/blob/main/screnshoot/ecolanding.png?raw=true "splashscreen")
